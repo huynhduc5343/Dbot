@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+	<robot name="nox">
+
+		<link name="base_link">	
+		</link>
+
+		<link name="base_scan">
+		</link>
+	
+		<joint name="base_scan" type="fixed">
+			<parent link="base_link"/>
+			<child link="base_scan"/>
+			<origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 3.141592"/>
+			<axis xyz="0 0 0"/>
+		</joint>	
+		
+	</robot>
