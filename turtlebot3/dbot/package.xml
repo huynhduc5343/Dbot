@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>turtlebot3</name>
+  <name>dbot</name>
   <version>1.2.4</version>
   <description>
     ROS packages for the Turtlebot3 (meta package)
@@ -18,11 +18,11 @@
   <url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3</url>
   <url type="bugtracker">https://github.com/ROBOTIS-GIT/turtlebot3/issues</url>
   <buildtool_depend>catkin</buildtool_depend>
-  <exec_depend>turtlebot3_bringup</exec_depend>
-  <exec_depend>turtlebot3_description</exec_depend>
-  <exec_depend>turtlebot3_example</exec_depend>
-  <exec_depend>turtlebot3_navigation</exec_depend>
-  <exec_depend>turtlebot3_slam</exec_depend>
-  <exec_depend>turtlebot3_teleop</exec_depend>
+  <exec_depend>dbot_bringup</exec_depend>
+  <exec_depend>dbot_description</exec_depend>
+  <exec_depend>dbot_example</exec_depend>
+  <exec_depend>dbot_navigation</exec_depend>
+  <exec_depend>dbot_slam</exec_depend>
+  <exec_depend>dbot_teleop</exec_depend>
   <export><metapackage/></export>
 </package>
