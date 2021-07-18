@@ -2,7 +2,7 @@
 # Set minimum required version of cmake, project name and compile options
 ################################################################################
 cmake_minimum_required(VERSION 2.8.3)
-project(turtlebot3_bringup)
+project(dbot_bringup)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -12,10 +12,11 @@ add_compile_options(-std=c++11)
 ################################################################################
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  gmapping
+  teb_local_planner
   std_msgs
   sensor_msgs
-  diagnostic_msgs
-  turtlebot3_msgs
+  
 )
 
 ################################################################################
@@ -34,7 +35,7 @@ find_package(catkin REQUIRED COMPONENTS
 # Declare catkin specific configuration to be passed to dependent projects
 ################################################################################
 catkin_package(
-  CATKIN_DEPENDS roscpp std_msgs sensor_msgs diagnostic_msgs turtlebot3_msgs
+  CATKIN_DEPENDS roscpp std_msgs sensor_msgs
 )
 
 ################################################################################
@@ -44,29 +45,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(turtlebot3_diagnostics src/turtlebot3_diagnostics.cpp)
-add_dependencies(turtlebot3_diagnostics ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(turtlebot3_diagnostics ${catkin_LIBRARIES})
+add_executable(dbot_controller src/dbot_controller.cpp)
+target_link_libraries(dbot_controller ${catkin_LIBRARIES})
 
 ################################################################################
 # Install
 ################################################################################
-install(TARGETS turtlebot3_diagnostics
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
-install(PROGRAMS 
-  scripts/create_udev_rules
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
-install(DIRECTORY launch
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
-
-install(FILES 99-turtlebot3-cdc.rules
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
 
 ################################################################################
 # Test
